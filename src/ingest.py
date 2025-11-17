@@ -15,10 +15,10 @@ def load_documents():
     # Load PDFs
     for f in os.listdir(RAW_DIR):
         if f.lower().endswith(".pdf"):
-            loader = PyPDFLoader(RAW_DIR + f)
+            loader = PyPDFLoader(os.path.join(RAW_DIR, f))
             docs.extend(loader.load())
         if f.lower().endswith(".html"):
-            docs.extend(load_clean_html(os.path.join("html", f)))
+            docs.extend(load_clean_html(os.path.join(RAW_DIR, f)))
 
 
     return docs
@@ -32,7 +32,7 @@ def chunk_documents(docs):
     return splitter.split_documents(docs)
 
 def load_clean_html(path):
-     with open(path, "r", encoding="utf-8") as f:
+    with open(path, "r", encoding="utf-8") as f:
         html = f.read()
 
         text = extract(html, include_comments=False, include_tables=True)
