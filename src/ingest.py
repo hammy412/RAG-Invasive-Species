@@ -6,7 +6,7 @@ from trafilatura import extract
 from langchain_core.documents import Document
 
 
-RAW_DIR = "html/"
+RAW_DIR = "data_raw/"
 OUT_PATH = "data_processed/chunks.json"
 
 def load_documents():
@@ -17,8 +17,11 @@ def load_documents():
         if f.lower().endswith(".pdf"):
             loader = PyPDFLoader(os.path.join(RAW_DIR, f))
             docs.extend(loader.load())
-        if f.lower().endswith(".html"):
+        elif f.lower().endswith(".html"):
             docs.extend(load_clean_html(os.path.join(RAW_DIR, f)))
+        elif f.lower().endswith(".txt") or f.lower().endswith(".md"):
+            loader = TextLoader(os.path.join(RAW_DIR, f), encoding="utf-8")
+            docs.extend(loader.load())
 
 
     return docs
