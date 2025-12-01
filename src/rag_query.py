@@ -20,7 +20,7 @@ llm = ChatOllama(model="llama3", temperature=0.1)
 prompt = ChatPromptTemplate.from_template("""
 You are a helpful assistant answering questions about invasive species.
 
-Use ONLY the provided context.
+Use ONLY the provided context. Do NOT make up facts.
 
 Question: {question}
 
