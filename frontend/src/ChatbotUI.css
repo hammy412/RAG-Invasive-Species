@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  width: 800px;       /* wider for desktop */
+  height: 600px;      /* fixed desktop height */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+}
+
+.chat-window {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: #fafafa;
+  border-bottom: 1px solid #ddd;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+.chat-window::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-window::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.chat-message {
+  padding: 0.75rem 1rem;
+  border-radius: 20px;
+  max-width: 70%;
+  word-wrap: break-word;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+.chat-message.user {
+  background-color: #4f46e5;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 0;
+}
+
+.chat-message.assistant {
+  background-color: #e5e7eb;
+  color: #111;
+  align-self: flex-start;
+  border-bottom-left-radius: 0;
+}
+
+.chat-input-container {
+  display: flex;
+  padding: 0.5rem 1rem;
+  background-color: #f9fafb;
+  border-top: 1px solid #ddd;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  transition: border-color 0.2s;
+}
+
+.chat-input:focus {
+  border-color: #4f46e5;
+}
+
+.chat-send-button {
+  padding: 0.75rem 1.25rem;
+  border-radius: 25px;
+  border: none;
+  background-color: #4f46e5;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.chat-send-button:hover:not(:disabled) {
+  background-color: #3730a3;
+}
+
+.chat-send-button:disabled {
+  background-color: #a5b4fc;
+  cursor: not-allowed;
+}

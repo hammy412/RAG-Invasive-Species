@@ -1,9 +1,0 @@
-fastapi
-uvicorn[standard]
-pydantic
-langchain_ollama
-langchain_community
-langchain_core
-chromadb
-trafilatura
-beautifulsoup4
