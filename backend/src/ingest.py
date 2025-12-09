@@ -107,7 +107,7 @@ if __name__ == "__main__":
     chunks = chunk_documents(docs)
 
     import json
-    os.makedirs("data_processed", exist_ok=True)
+    os.makedirs("../data_processed", exist_ok=True)
 
     with open(OUT_PATH, "w", encoding="utf-8") as f:
         json.dump(
