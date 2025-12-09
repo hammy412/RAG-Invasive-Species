@@ -35,7 +35,7 @@ db = Chroma(
     embedding_function=embeddings
 )
 
-retriever = db.as_retriever(search_kwargs={"k": 4})
+retriever = db.as_retriever(search_kwargs={"k": 3})
 
 llm = ChatOllama(model="llama3", temperature=0.1)
 
